@@ -1,5 +1,9 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import SearchBar from "./SearchBar";
+import NearbyModal from "./NearbyModal";
+import CategoriesModal from "./CategoriesModal";
+import EventsModal from "./EventsModal";
 import { MapPin, Compass, Calendar } from "lucide-react";
 import heroImage from "@/assets/hero-angolan-market.jpg";
 
@@ -8,6 +12,14 @@ interface HeroSectionProps {
 }
 
 const HeroSection = ({ onSearch }: HeroSectionProps) => {
+  const [nearbyOpen, setNearbyOpen] = useState(false);
+  const [categoriesOpen, setCategoriesOpen] = useState(false);
+  const [eventsOpen, setEventsOpen] = useState(false);
+
+  const handleCategorySelect = (category: string) => {
+    // This could filter the main content or navigate to a category page
+    console.log("Selected category:", category);
+  };
   return (
     <section className="relative min-h-[600px] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -42,15 +54,30 @@ const HeroSection = ({ onSearch }: HeroSectionProps) => {
 
         {/* Quick Actions */}
         <div className="flex flex-wrap gap-4 justify-center">
-          <Button variant="hero" size="lg" className="gap-2">
+          <Button 
+            variant="hero" 
+            size="lg" 
+            className="gap-2"
+            onClick={() => setNearbyOpen(true)}
+          >
             <MapPin className="h-5 w-5" />
             Próximos a mim
           </Button>
-          <Button variant="outline" size="lg" className="gap-2 bg-white/10 border-white/30 text-white hover:bg-white/20">
+          <Button 
+            variant="outline" 
+            size="lg" 
+            className="gap-2 bg-white/10 border-white/30 text-white hover:bg-white/20"
+            onClick={() => setCategoriesOpen(true)}
+          >
             <Compass className="h-5 w-5" />
             Explorar categorias
           </Button>
-          <Button variant="outline" size="lg" className="gap-2 bg-white/10 border-white/30 text-white hover:bg-white/20">
+          <Button 
+            variant="outline" 
+            size="lg" 
+            className="gap-2 bg-white/10 border-white/30 text-white hover:bg-white/20"
+            onClick={() => setEventsOpen(true)}
+          >
             <Calendar className="h-5 w-5" />
             Eventos hoje
           </Button>
@@ -105,6 +132,15 @@ const HeroSection = ({ onSearch }: HeroSectionProps) => {
           </div>
         </a>
       </div>
+
+      {/* Modals */}
+      <NearbyModal open={nearbyOpen} onOpenChange={setNearbyOpen} />
+      <CategoriesModal 
+        open={categoriesOpen} 
+        onOpenChange={setCategoriesOpen}
+        onCategorySelect={handleCategorySelect}
+      />
+      <EventsModal open={eventsOpen} onOpenChange={setEventsOpen} />
     </section>
   );
 };
