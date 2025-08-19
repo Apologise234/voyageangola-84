@@ -11,7 +11,7 @@ const TourGuide = () => {
   const [question, setQuestion] = useState("");
   const [messages, setMessages] = useState<{text: string, isUser: boolean}[]>([
     {
-      text: "👋 Bem-vindo! Este chat está conectado ao ZEUS, o novo guia virtual de Angola 🌍. ⚡ Ainda não está totalmente disponível, mas você já pode conversar comigo e explorar Angola de forma única.\n\nSou como aquele amigo que conhece Angola de cabo a rabo - das praias paradisíacas às montanhas da Huíla, da deliciosa culinária aos ritmos que fazem o coração vibrar. O que você gostaria de descobrir sobre este país maravilhoso?",
+      text: "👋 Bem-vindo! Este chat está conectado ao ZEUS, o novo guia virtual de Angola 🌍. ⚡ Ainda não está totalmente disponível, mas você já pode conversar comigo e explorar Angola de forma única.\n\nSou como aquele amigo que conhece Angola completamente - das praias paradisíacas às montanhas da Huíla, da deliciosa culinária aos ritmos que fazem o coração vibrar. O que você gostaria de descobrir sobre este país maravilhoso?",
       isUser: false
     }
   ]);
