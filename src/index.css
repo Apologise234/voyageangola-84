@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* City Guide Plus Design System - Gastronomic & Tourism App */
+
+@layer base {
+  :root {
+    /* Base colors - Warm and inviting */
+    --background: 20 14% 98%;
+    --foreground: 25 20% 15%;
+
+    /* Card system */
+    --card: 0 0% 100%;
+    --card-foreground: 25 20% 15%;
+
+    /* Popover */
+    --popover: 0 0% 100%;
+    --popover-foreground: 25 20% 15%;
+
+    /* Primary - Warm orange for gastronomy */
+    --primary: 25 95% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 25 100% 70%;
+
+    /* Secondary - Fresh green for local experiences */
+    --secondary: 140 50% 95%;
+    --secondary-foreground: 140 60% 25%;
+
+    /* Muted tones */
+    --muted: 20 10% 96%;
+    --muted-foreground: 25 15% 45%;
+
+    /* Accent - Warm terracotta */
+    --accent: 15 85% 92%;
+    --accent-foreground: 15 60% 30%;
+
+    /* Interactive states */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders and inputs */
+    --border: 20 15% 90%;
+    --input: 20 20% 92%;
+    --ring: 25 95% 60%;
+
+    /* Design tokens */
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-card: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+    --gradient-accent: linear-gradient(120deg, hsl(var(--accent)), hsl(var(--secondary)));
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(var(--primary) / 0.1);
+    --shadow-card: 0 8px 30px -8px hsl(var(--foreground) / 0.08);
+    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.3);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    /* Sidebar (keeping original for consistency) */
+    --sidebar-background: 20 14% 98%;
+    --sidebar-foreground: 25 20% 15%;
+    --sidebar-primary: 25 95% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 20 10% 96%;
+    --sidebar-accent-foreground: 25 20% 15%;
+    --sidebar-border: 20 15% 90%;
+    --sidebar-ring: 25 95% 60%;
+  }
+
+  .dark {
+    /* Dark mode - Rich and sophisticated */
+    --background: 25 15% 8%;
+    --foreground: 20 10% 95%;
+
+    --card: 25 15% 10%;
+    --card-foreground: 20 10% 95%;
+
+    --popover: 25 15% 10%;
+    --popover-foreground: 20 10% 95%;
+
+    --primary: 25 90% 65%;
+    --primary-foreground: 25 15% 8%;
+    --primary-glow: 25 95% 70%;
+
+    --secondary: 140 20% 15%;
+    --secondary-foreground: 140 30% 85%;
+
+    --muted: 25 10% 15%;
+    --muted-foreground: 25 8% 65%;
+
+    --accent: 15 40% 20%;
+    --accent-foreground: 15 30% 85%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 25 12% 18%;
+    --input: 25 12% 18%;
+    --ring: 25 90% 65%;
+
+    /* Dark gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-card: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+    --gradient-accent: linear-gradient(120deg, hsl(var(--accent)), hsl(var(--secondary)));
+
+    /* Dark shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.2);
+    --shadow-card: 0 8px 30px -8px hsl(0 0% 0% / 0.3);
+    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.2);
+
+    --sidebar-background: 25 15% 8%;
+    --sidebar-foreground: 20 10% 95%;
+    --sidebar-primary: 25 90% 65%;
+    --sidebar-primary-foreground: 25 15% 8%;
+    --sidebar-accent: 25 10% 15%;
+    --sidebar-accent-foreground: 20 10% 95%;
+    --sidebar-border: 25 12% 18%;
+    --sidebar-ring: 25 90% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+@layer components {
+  /* Hero button variant */
+  .btn-hero {
+    @apply bg-gradient-to-r from-primary to-primary-glow text-primary-foreground font-semibold px-8 py-4 rounded-full shadow-glow hover:shadow-lg transform hover:scale-105;
+    transition: var(--transition-spring);
+  }
+
+  /* Card hover effects */
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-card hover:-translate-y-1;
+  }
+
+  /* Restaurant card styling */
+  .restaurant-card {
+    @apply bg-card rounded-xl overflow-hidden shadow-soft border border-border;
+    transition: var(--transition-smooth);
+  }
+
+  .restaurant-card:hover {
+    @apply shadow-card -translate-y-2;
+  }
+
+  /* Filter button active state */
+  .filter-active {
+    @apply bg-gradient-to-r from-primary to-primary-glow text-primary-foreground;
+  }
+
+  /* Search bar styling */
+  .search-enhanced {
+    @apply bg-white/90 backdrop-blur-sm border-2 border-white/20 rounded-full px-6 py-4 text-lg shadow-soft;
+    transition: var(--transition-smooth);
+  }
+
+  .search-enhanced:focus {
+    @apply border-primary/40 shadow-glow;
+  }
+}
