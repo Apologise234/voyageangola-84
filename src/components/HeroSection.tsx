@@ -85,6 +85,26 @@ const HeroSection = ({ onSearch }: HeroSectionProps) => {
           </div>
         </div>
       </div>
+
+      {/* AngolaExperience Link */}
+      <div className="absolute top-8 right-8 hidden lg:block">
+        <a 
+          href="https://angolaexperience.com/passeios-por-angola/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 block"
+        >
+          <div className="flex items-center gap-3">
+            <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+              <Compass className="h-6 w-6 text-primary" />
+            </div>
+            <div>
+              <p className="font-semibold text-foreground">Conectar com</p>
+              <p className="text-sm text-primary font-medium">AngolaExperience</p>
+            </div>
+          </div>
+        </a>
+      </div>
     </section>
   );
 };
