@@ -4,7 +4,8 @@ import SearchBar from "./SearchBar";
 import NearbyModal from "./NearbyModal";
 import CategoriesModal from "./CategoriesModal";
 import EventsModal from "./EventsModal";
-import { MapPin, Compass, Calendar } from "lucide-react";
+import HotelsModal from "./HotelsModal";
+import { MapPin, Compass, Calendar, Bed } from "lucide-react";
 import heroImage from "@/assets/hero-angolan-market.jpg";
 
 interface HeroSectionProps {
@@ -15,6 +16,7 @@ const HeroSection = ({ onSearch }: HeroSectionProps) => {
   const [nearbyOpen, setNearbyOpen] = useState(false);
   const [categoriesOpen, setCategoriesOpen] = useState(false);
   const [eventsOpen, setEventsOpen] = useState(false);
+  const [hotelsOpen, setHotelsOpen] = useState(false);
 
   const handleCategorySelect = (category: string) => {
     // This could filter the main content or navigate to a category page
@@ -71,6 +73,15 @@ const HeroSection = ({ onSearch }: HeroSectionProps) => {
           >
             <Compass className="h-5 w-5" />
             Explorar categorias
+          </Button>
+          <Button 
+            variant="outline" 
+            size="lg" 
+            className="gap-2 bg-white/10 border-white/30 text-white hover:bg-white/20"
+            onClick={() => setHotelsOpen(true)}
+          >
+            <Bed className="h-5 w-5" />
+            Hotéis
           </Button>
           <Button 
             variant="outline" 
@@ -140,6 +151,7 @@ const HeroSection = ({ onSearch }: HeroSectionProps) => {
         onOpenChange={setCategoriesOpen}
         onCategorySelect={handleCategorySelect}
       />
+      <HotelsModal open={hotelsOpen} onOpenChange={setHotelsOpen} />
       <EventsModal open={eventsOpen} onOpenChange={setEventsOpen} />
     </section>
   );
