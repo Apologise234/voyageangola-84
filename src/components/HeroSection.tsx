@@ -5,7 +5,11 @@ import NearbyModal from "./NearbyModal";
 import CategoriesModal from "./CategoriesModal";
 import EventsModal from "./EventsModal";
 import HotelsModal from "./HotelsModal";
-import { MapPin, Compass, Calendar, Bed } from "lucide-react";
+import AttractionsModal from "./AttractionsModal";
+import TransportModal from "./TransportModal";
+import TravelPackagesModal from "./TravelPackagesModal";
+import TravelInfoModal from "./TravelInfoModal";
+import { MapPin, Compass, Calendar, Bed, Camera, Plane, Package, Info } from "lucide-react";
 import heroImage from "@/assets/hero-angolan-market.jpg";
 
 interface HeroSectionProps {
@@ -17,6 +21,10 @@ const HeroSection = ({ onSearch }: HeroSectionProps) => {
   const [categoriesOpen, setCategoriesOpen] = useState(false);
   const [eventsOpen, setEventsOpen] = useState(false);
   const [hotelsOpen, setHotelsOpen] = useState(false);
+  const [attractionsOpen, setAttractionsOpen] = useState(false);
+  const [transportOpen, setTransportOpen] = useState(false);
+  const [packagesOpen, setPackagesOpen] = useState(false);
+  const [travelInfoOpen, setTravelInfoOpen] = useState(false);
 
   const handleCategorySelect = (category: string) => {
     // This could filter the main content or navigate to a category page
@@ -92,6 +100,42 @@ const HeroSection = ({ onSearch }: HeroSectionProps) => {
             <Calendar className="h-5 w-5" />
             Eventos hoje
           </Button>
+          <Button 
+            variant="outline" 
+            size="lg" 
+            className="gap-2 bg-white/10 border-white/30 text-white hover:bg-white/20"
+            onClick={() => setAttractionsOpen(true)}
+          >
+            <Camera className="h-5 w-5" />
+            Atrações
+          </Button>
+          <Button 
+            variant="outline" 
+            size="lg" 
+            className="gap-2 bg-white/10 border-white/30 text-white hover:bg-white/20"
+            onClick={() => setTransportOpen(true)}
+          >
+            <Plane className="h-5 w-5" />
+            Transporte
+          </Button>
+          <Button 
+            variant="outline" 
+            size="lg" 
+            className="gap-2 bg-white/10 border-white/30 text-white hover:bg-white/20"
+            onClick={() => setPackagesOpen(true)}
+          >
+            <Package className="h-5 w-5" />
+            Pacotes
+          </Button>
+          <Button 
+            variant="outline" 
+            size="lg" 
+            className="gap-2 bg-white/10 border-white/30 text-white hover:bg-white/20"
+            onClick={() => setTravelInfoOpen(true)}
+          >
+            <Info className="h-5 w-5" />
+            Guia
+          </Button>
         </div>
       </div>
 
@@ -153,6 +197,10 @@ const HeroSection = ({ onSearch }: HeroSectionProps) => {
       />
       <HotelsModal open={hotelsOpen} onOpenChange={setHotelsOpen} />
       <EventsModal open={eventsOpen} onOpenChange={setEventsOpen} />
+      <AttractionsModal open={attractionsOpen} onOpenChange={setAttractionsOpen} />
+      <TransportModal open={transportOpen} onOpenChange={setTransportOpen} />
+      <TravelPackagesModal open={packagesOpen} onOpenChange={setPackagesOpen} />
+      <TravelInfoModal open={travelInfoOpen} onOpenChange={setTravelInfoOpen} />
     </section>
   );
 };
